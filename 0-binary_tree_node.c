@@ -6,10 +6,10 @@
  * value: the value of n of the new node
  * Return: pointer to new node or None
  */
-
-
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value) {
 	binary_tree_t *bt_p = malloc(sizeof(binary_tree_t));
+	if (parent && parent->left && parent->right)
+		return (NULL);
 	bt_p->left = NULL;
 	bt_p->right = NULL;
 	bt_p->n = value;
