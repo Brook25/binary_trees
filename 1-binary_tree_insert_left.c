@@ -7,8 +7,11 @@
  * Return: pointer to the created node
  */
 binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value) {
-	binary_tree_t *new_left = malloc(sizeof(binary_tree_t));
-	if (!new_left || !parent)
+	binary_tree_t *new_left;
+	if (!parent)
+		return (NULL);
+	new_left = malloc(sizeof(binary_tree_t));
+	if (!new_left)
 		return (NULL);
 	new_left->n = value;
 	new_left->parent = parent;
