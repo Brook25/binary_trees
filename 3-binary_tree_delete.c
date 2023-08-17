@@ -24,6 +24,7 @@ binary_tree_t *find_leaf(binary_tree_t *node)
  * Return: nothing
  */
 
+binary_tree_t *find_leaf(binary_tree_t *node);
 void binary_tree_delete(binary_tree_t *tree) 
 {
 	binary_tree_t *sub_t = tree;
