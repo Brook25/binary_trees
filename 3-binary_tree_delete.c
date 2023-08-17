@@ -18,13 +18,15 @@ binary_tree_t *find_leaf(binary_tree_t *node)
 	return node;
 }
 
+
+binary_tree_t *find_leaf(binary_tree_t *node);
+
 /**
  * binary_tree_delete - deletes a binary tree and frees memory
  * @tree: the tree to be deleted
  * Return: nothing
  */
 
-binary_tree_t *find_leaf(binary_tree_t *node);
 void binary_tree_delete(binary_tree_t *tree) 
 {
 	binary_tree_t *sub_t = tree;
