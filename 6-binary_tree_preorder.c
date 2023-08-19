@@ -39,6 +39,10 @@ binary_tree_t *traverse_and_print(binary_tree_t *node, void(*func)(int))
 	return (node);
 }
 
+binary_tree_t *find_last_node(binary_tree_t* root);
+
+binary_tree_t *traverse_and_print(binary_tree_t *node, void(*func)(int));
+
 /**
  * binary_tree_preorder - does preorder traversal and prints n value
  * of node by calling helper functions
@@ -46,15 +50,13 @@ binary_tree_t *traverse_and_print(binary_tree_t *node, void(*func)(int))
  * @func: func used to print values
  * Return: None
  */
-
-binary_tree_t *find_last_node(binary_tree_t* root);
-
-binary_tree_t *traverse_and_print(binary_tree_t *node, void(*func)(int));
-
 void binary_tree_preorder(const binary_tree_t *tree, void (*func)(int))
 {
 	binary_tree_t *sub_tree, *last_node;
 	if (!tree)
+		return;
+	
+	if (!func)
 		return;
 
 	sub_tree = (binary_tree_t *) tree;
