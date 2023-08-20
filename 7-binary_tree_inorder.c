@@ -45,7 +45,7 @@ binary_tree_t *find_last_node(binary_tree_t* root);
 binary_tree_t *traverse_and_print(binary_tree_t *node, void(*func)(int));
 
 /**
- * binary_tree_preorder - does inorder traversal and prints n value
+ * binary_tree_inorder - does inorder traversal and prints n value
  * of node by calling helper functions
  * @tree: tree to be traversed
  * @func: func used to print values
