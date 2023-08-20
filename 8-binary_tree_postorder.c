@@ -4,7 +4,6 @@
  * traverse_and_print - traverses a tree in post-order traversal
  * and prints the n value of the node
  * @node: the node of the tree where traversal starts
- * @func: function pointer to print n
  * Return: node
  */
 binary_tree_t *traverse_and_print(binary_tree_t *node)
