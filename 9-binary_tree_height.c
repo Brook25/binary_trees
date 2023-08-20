@@ -1,21 +1,78 @@
 #include "binary_trees.h"
 
 /**
- * binary_tree_height - measures the height of a binary tree
- * @tree: tree to measure the height of
- *
- * Return: height of the tree
- *         0 if tree is NULL
+ * find_last_node - finds the right most or left most
+ *  node in a tree
+ *  @root: root node of the tree
+ *  Return: left or right most node or null
+ */
+binary_tree_t *find_last_node(binary_tree_t* root)
+{
+        binary_tree_t *r = root;
+        while(r->right || r->left)
+        {
+                if (r->right)
+                        r = r->right;
+                else if(r->left)
+                        r = r->left;
+        }
+        return r;
+}
+
+/**
+ * traverse_and_print - traverses a tree in post-order traversal
+ * and prints the n value of the node
+ * @node: the node of the tree where traversal starts
+ * Return: node
+ */
+size_t find_height(binary_tree_t *node)
+{
+	int no_of_paths = 0;
+	while (node->left || node->right) {
+		if (node->left)
+			node = node->left;
+		else if (node->right) {
+			node = node->right;
+		}
+		no_of_paths += 1;
+	}
+	return no_of_paths;
+}
+
+/**
+ * binary_tree_height - does post-order traversal and prints n value
+ * of node by calling helper functions
+ * @tree: tree to be traversed
+ * Return: the height of the tree
  */
 size_t binary_tree_height(const binary_tree_t *tree)
 {
-	size_t height_l = 0;
-	size_t height_r = 0;
-
+	binary_tree_t *sub_tree, *last_node;
+	int level, height;
 	if (!tree)
-		return (0);
+		return 0;
 
-	height_l = tree->left ? 1 + binary_tree_height(tree->left) : 0;
-	height_r = tree->right ? 1 + binary_tree_height(tree->right) : 0;
-	return (height_l > height_r ? height_l : height_r);
+	sub_tree = (binary_tree_t *) tree;
+	last_node = find_last_node(sub_tree);
+	height = level = find_height(sub_tree);
+	while (sub_tree != last_node && sub_tree != tree)
+        	{
+			if (sub_tree == sub_tree->parent->right)
+             		{
+                 		sub_tree = sub_tree->parent;
+				level -= 1;
+                        	continue;
+             		}
+              		if (sub_tree == sub_tree->parent->left && !(sub_tree->parent->right))
+              		{
+				sub_tree = sub_tree->parent;
+				level -= 1;
+                        	continue;
+                	}
+
+			level += find_height(sub_tree->parent->right);
+			if (level > height)
+				height = level;
+		}
+	return height;
 }
