@@ -25,17 +25,18 @@ binary_tree_t *find_last_node(binary_tree_t* root)
  * @node: the node of the tree where traversal starts
  * Return: node
  */
-size_t find_height(binary_tree_t *node)
+size_t find_height(binary_tree_t **node)
 {
 	int no_of_paths = 0;
-	while (node->left || node->right) {
-		if (node->left)
-			node = node->left;
-		else if (node->right) {
-			node = node->right;
+	while ((*node)->left || (*node)->right) {
+		if ((*node)->left)
+			*node = (*node)->left;
+		else if ((*node)->right) {
+			*node = (*node)->right;
 		}
 		no_of_paths += 1;
 	}
+	//printf("%d\n", no_of_paths);
 	return no_of_paths;
 }
 
@@ -54,8 +55,8 @@ size_t binary_tree_height(const binary_tree_t *tree)
 
 	sub_tree = (binary_tree_t *) tree;
 	last_node = find_last_node(sub_tree);
-	height = level = find_height(sub_tree);
-	while (sub_tree != last_node && sub_tree != tree)
+	height = level = find_height(&sub_tree);
+	while (sub_tree != tree && sub_tree != last_node)
         	{
 			if (sub_tree == sub_tree->parent->right)
              		{
@@ -70,7 +71,9 @@ size_t binary_tree_height(const binary_tree_t *tree)
                         	continue;
                 	}
 
-			level += find_height(sub_tree->parent->right);
+			sub_tree = sub_tree->parent->right;
+			level += find_height(&sub_tree);
+			//printf("%d\n", level);
 			if (level > height)
 				height = level;
 		}
