@@ -37,11 +37,9 @@ void binary_tree_postorder(const binary_tree_t *tree, void (*func)(int))
 
 	sub_tree = (binary_tree_t *) tree;
 	sub_tree = traverse_and_print(sub_tree);
-
 	while (sub_tree != tree)
         	{
 			func(sub_tree->n);
-	     		
 			if (sub_tree == sub_tree->parent->right)
              		{
                  		sub_tree = sub_tree->parent;
@@ -55,6 +53,5 @@ void binary_tree_postorder(const binary_tree_t *tree, void (*func)(int))
 
 			sub_tree = traverse_and_print(sub_tree->parent->right);
 		}
-
 	func(sub_tree->n);
 }
