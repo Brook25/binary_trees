@@ -20,7 +20,7 @@ binary_tree_t *find_last_node(binary_tree_t* root)
 }
 
 /**
- * traverse_and_print - traverses a tree in post-order traversal
+ * find_height - traverses a tree in post-order traversal
  * and prints the n value of the node
  * @node: the node of the tree where traversal starts
  * Return: node
