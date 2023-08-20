@@ -19,7 +19,7 @@ binary_tree_t *traverse_and_print(binary_tree_t *node)
 }
 
 /**
- * binary_tree_inorder - does post-order traversal and prints n value
+ * binary_tree_postorder - does post-order traversal and prints n value
  * of node by calling helper functions
  * @tree: tree to be traversed
  * @func: func used to print values
