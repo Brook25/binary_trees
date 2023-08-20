@@ -36,9 +36,11 @@ size_t find_height(binary_tree_t **node)
 		}
 		no_of_paths += 1;
 	}
-	//printf("%d\n", no_of_paths);
 	return no_of_paths;
 }
+
+size_t find_height(binary_tree_t **node);
+binary_tree_t *find_last_node(binary_tree_t* root);
 
 /**
  * binary_tree_height - does post-order traversal and prints n value
@@ -73,7 +75,6 @@ size_t binary_tree_height(const binary_tree_t *tree)
 
 			sub_tree = sub_tree->parent->right;
 			level += find_height(&sub_tree);
-			//printf("%d\n", level);
 			if (level > height)
 				height = level;
 		}
