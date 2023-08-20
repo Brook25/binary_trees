@@ -28,10 +28,7 @@ binary_tree_t *traverse_and_print(binary_tree_t *node)
 void binary_tree_postorder(const binary_tree_t *tree, void (*func)(int))
 {
 	binary_tree_t *sub_tree;
-	if (!tree)
-		return;
-
-	if (!func)
+	if (!(tree && func))
 		return;
 
 	sub_tree = (binary_tree_t *) tree;
