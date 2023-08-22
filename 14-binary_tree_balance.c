@@ -16,7 +16,9 @@ int get_height(binary_tree_t *tree, int level)
 
 	left_height = get_height(tree->left, level + 1);
 	
-	right_height = level + get_height(tree->right, level + 1);
+	level += 1;
+
+	right_height = level + get_height(tree->right, level);
 
 	if (left_height >= right_height)
 		return left_height;
