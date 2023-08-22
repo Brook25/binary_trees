@@ -22,8 +22,8 @@ int get_height(binary_tree_t *tree, int level)
 	
 	right_height = 1 + level + get_height(tree->right, level);
 
-	printf("left->%d\n", left_height);
-	printf("right->%d\n", right_height);
+	//printf("left->%d\n", left_height);
+	//printf("right->%d\n", right_height);
 	if (left_height >= right_height)
 		return left_height;
 	return right_height;
