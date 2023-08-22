@@ -6,19 +6,24 @@
  * @height: level of node
  * Return: height
  */
-int find_height(binary_tree_t *tree, int level)
+int get_height(binary_tree_t *tree, int level)
 {
 	int right_height;
 	int left_height;
 
 	if (!tree)
 		return (0);
+	//if (!(tree->right) && !(tree->left))
+	//	return (0);
 
-	level += 1;
-	left_height = find_height(tree->left, level);
+	//if (tree->left || tree->right)
+	//leve;
+	left_height = get_height(tree->left, level + 1);
 	
-	right_height = level + find_height(tree->right, level);
+	right_height = 1 + level + get_height(tree->right, level);
 
+	printf("left->%d\n", left_height);
+	printf("right->%d\n", right_height);
 	if (left_height >= right_height)
 		return left_height;
 	return right_height;
@@ -32,7 +37,10 @@ int find_height(binary_tree_t *tree, int level)
 int binary_tree_balance(const binary_tree_t *tree)
 {
 	if (!tree)
-		return 0;
-
-	return (find_height(tree->left, 0) - find_height(tree->right, 0));
+		return (0);
+	
+	//printf("%d\n", get_height(tree->left, 0));
+	//printf("%d\n", get_height(tree->right, 0));
+	//return 0;
+	return (get_height(tree->left, 0) - get_height(tree->right, 0));
 }
