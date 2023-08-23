@@ -1,8 +1,8 @@
 #include "binary_trees.h"
 /**
- * find_height - function calculates the height of a tree
+ * get_height - function calculates the height of a tree
  * @tree: tree to be traversed
- * @height: level of node
+ * @level: level of node
  * Return: height
  */
 int get_height(binary_tree_t *tree, int level)
