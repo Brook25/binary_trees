@@ -43,7 +43,7 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
         return (0);
 
     sub_tree = (binary_tree_t *) tree;
-    
+
     while (sub_tree->left || sub_tree->right)
     {
         if (sub_tree->left)
