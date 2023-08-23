@@ -25,6 +25,9 @@ int binary_tree_is_full_and_complete(const binary_tree_t *tree, int level, int h
             binary_tree_is_full_and_complete(tree->right, level + 1, height));
 }
 
+
+int binary_tree_is_full_and_complete(const binary_tree_t *tree, int level, int height);
+
 /**
  * binary_tree_is_perfect - checks if binary tree is perfect
  * @tree: tree to be checked
