@@ -1,5 +1,4 @@
 #include "binary_trees.h"
-
 /**
  * find_height - function calculates the height of a tree
  * @tree: tree to be traversed
@@ -15,14 +14,13 @@ int get_height(binary_tree_t *tree, int level)
 		return (level);
 
 	left_height = get_height(tree->left, level + 1);
-	
+
 	right_height = get_height(tree->right, level + 1);
 
 	if (left_height >= right_height)
 		return left_height;
 	return right_height;
 }
-
 /**
  * binary_tree_balance - returns the balance factor of a tree
  * @tree: tree to be traversed
